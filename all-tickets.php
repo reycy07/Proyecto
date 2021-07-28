@@ -13,7 +13,7 @@
             if(!empty($tickes)):
                 while($insert = mysqli_fetch_assoc($tickes)):
             ?>
-
+                        
                         <article class="post">
                             <a href="">
                                 <h2><?=$insert['titulo']?></h2>
