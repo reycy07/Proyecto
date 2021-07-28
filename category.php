@@ -32,8 +32,10 @@
 
              <?php 
                 endwhile;
-            endif;
+            else:
             ?>
+            <div class="alert alert-danger">No se ha ingresado ninguna entrada para esta Categoria <a href="create-tickets.php">aquí</a></div>
+            <?php endif;?>
 
            
 
