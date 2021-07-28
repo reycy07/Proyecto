@@ -60,7 +60,7 @@ function categoryList($conexion){
     return $result;
 }
 
-function viewTickes($conexion, $limit = null){
+function viewTickes($conexion, $limit = null,){
     $sql = "SELECT e.*,c.nombre AS categoria FROM entradas e".
     " INNER JOIN categorias c ON e.categoria_id = c.id".
     " ORDER BY e.id DESC ";
@@ -68,6 +68,7 @@ function viewTickes($conexion, $limit = null){
     if(!empty($category) && is_int($category)){
         $sql .= "WHERE e.categoria_id = '$category';";
     }
+
 
     if($limit){
         $sql.= "LIMIT 4;";

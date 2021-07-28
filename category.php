@@ -1,17 +1,21 @@
 <?php require_once 'includes/header.php'?>
 
-    
+<?php
+ $category= categoryPage($conexion, $_GET['id']);
+ if(empty($category)){
+     header("location:index.php");
+ }
+     ?>    
         <!-- side bar -->
         <?php require_once 'includes/sidebar.php' ?>
-
+        
         <!-- main -->
         <main class="main">
-            <?php $category= categoryPage($conexion, $_GET['id']) ?>
 
             <h1>Entradas de <?= $category['nombre'] ?></h1>
 
             <?php
-            $tickes = viewTickes($conexion, true);
+            $tickes = viewTickes($conexion, null, $_GET['id']);
             if(!empty($tickes)):
                 while($insert = mysqli_fetch_assoc($tickes)):
             ?>
