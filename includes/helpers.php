@@ -65,6 +65,10 @@ function viewTickes($conexion, $limit = null){
     " INNER JOIN categorias c ON e.categoria_id = c.id".
     " ORDER BY e.id DESC ";
 
+    if(!empty($category) && is_int($category)){
+        $sql .= "WHERE e.categoria_id = '$category';";
+    }
+
     if($limit){
         $sql.= "LIMIT 4;";
     }
