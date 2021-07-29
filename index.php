@@ -15,7 +15,8 @@
             ?>
 
                         <article class="post">
-                            <a href="">
+                            <a href="tickets.php?id= <?= $insert['id'] ?>">
+                                <?= $insert['id']  ?>
                                 <h2><?=$insert['titulo']?></h2>
                                 <span class="date"><?= $insert['categoria'].' | '. $insert['fecha'] ?></span>
                                 <p>
@@ -26,8 +27,10 @@
 
              <?php 
                 endwhile;
-            endif;
-            ?>
+            
+            endif; 
+            ?> 
+            
 
            
 
