@@ -15,8 +15,7 @@
             ?>
 
                         <article class="post">
-                            <a href="tickets.php?id= <?= $insert['id'] ?>">
-                                <?= $insert['id']  ?>
+                            <a href="tickets.php?id=<?= $insert['id'] ?>">
                                 <h2><?=$insert['titulo']?></h2>
                                 <span class="date"><?= $insert['categoria'].' | '. $insert['fecha'] ?></span>
                                 <p>

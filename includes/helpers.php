@@ -47,6 +47,21 @@ function categoryPage($conexion, $id){
     return $result;
 }
 
+function ticketPage($conexion, $id){
+    $sql =  "SELECT e.*,c.nombre AS 'categoria' FROM entradas e".
+            " INNER JOIN categorias c on e.categoria_id = c.id".
+            " WHERE e.id = '$id'";
+    $ticket =mysqli_query($conexion, $sql);
+
+    $result = array();
+
+    if($ticket && mysqli_num_rows($ticket) >=1){
+        $result = mysqli_fetch_assoc($ticket);
+    }
+
+    return $result;
+}
+
 function categoryList($conexion){
     $sql = "SELECT * FROM categorias ORDER BY id ASC;";
     $category =mysqli_query($conexion, $sql);
