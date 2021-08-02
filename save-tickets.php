@@ -26,7 +26,13 @@ if(isset($_POST)){
 
 
     if(count($errors) == 0){
-        $sql = "INSERT INTO entradas VALUES (NULL,'$user','$idCategory','$name','$description',CURDATE());";
+        if(isset($_GET['edit'])){
+
+        }else{
+            $sql = "INSERT INTO entradas VALUES (NULL,'$user','$idCategory','$name','$description',CURDATE());";
+            
+        }
+        
         $saveTicket = mysqli_query($conexion, $sql);
 
         header('location:index.php');

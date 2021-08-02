@@ -24,8 +24,8 @@ $ticket_current= ticketPage($conexion, $_GET['id']);
             </p>
             <?php if(isset($_SESSION['user']) && $_SESSION['user']['id']== $ticket_current['usuario_id']): ?>
             <div class="box-buttom size-buttom">
-                <a href="edit-ticket.php" class="button">Editar ticket</a>
-                <a href="delete-ticket.php" class="button">Borrar Ticket</a>
+                <a href="edit-ticket.php?id=<?= $ticket_current['id'] ?>" class="button">Editar ticket</a>
+                <a href="delete-ticket.php?id=<?= $ticket_current['id'] ?>?" class="button">Borrar Ticket</a>
             </div>
             <?php endif; ?>
             
