@@ -174,13 +174,22 @@ input[type="submit"],
     justify-content: space-between;
 }
 
+
 .button{
     display: block;
     text-align: center;
-    width: 60%;
+    width: 50%;
     font-size: 14px;
 }
 
+
+.size-buttom{
+    margin-top: 50px;
+}
+
+.size-buttom a{
+    width: 30%;
+}
 
 /* main */
 
