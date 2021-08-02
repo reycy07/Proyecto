@@ -48,9 +48,9 @@ function categoryPage($conexion, $id){
 }
 
 function ticketPage($conexion, $id){
-    $sql =  "SELECT e.*,c.nombre AS 'categoria' FROM entradas e".
+    $sql =  "SELECT e.* , c.nombre AS 'categoria', CONCAT(u.nombres,' ', u.apellidos) AS 'usuario' FROM entradas e".
             " INNER JOIN categorias c on e.categoria_id = c.id".
-            // " INNER JOIN usuarios u on e.usuario_id = u.id".
+            " INNER JOIN usuarios u on e.usuario_id = u.id".
             " WHERE e.id = '$id'";
     $ticket =mysqli_query($conexion, $sql);
 
