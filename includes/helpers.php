@@ -76,7 +76,7 @@ function categoryList($conexion){
     return $result;
 }
 
-function viewTickes($conexion, $limit = null, $category = null){
+function viewTickes($conexion, $limit = null, $category = null, $search = null){
     $sql = "SELECT e.*,c.nombre AS categoria FROM entradas e".
     " INNER JOIN categorias c ON e.categoria_id = c.id ";
 
@@ -84,10 +84,17 @@ function viewTickes($conexion, $limit = null, $category = null){
         $sql .= "WHERE e.categoria_id = '$category'";
     }
 
+    if(!empty($search)){
+        $sql .= "WHERE e.titulo LIKE '%$search%'";
+    }
+
     $sql.= " ORDER BY e.id DESC ";
     if($limit){
         $sql.= "LIMIT 4;";
     }
+
+    // var_dump($sql);
+    // die();
 
     $ticke =mysqli_query($conexion, $sql);
 
@@ -97,6 +104,7 @@ function viewTickes($conexion, $limit = null, $category = null){
     }
     return $result;
 }
+
 
 
 

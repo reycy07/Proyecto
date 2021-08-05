@@ -14,6 +14,17 @@
                 <h3><?= $_SESSION['errors_login'] ?></h3>
             </div>
             <?php endif ;?>
+
+
+    <div class="block" id='search'>
+    <h3>Buscar</h3>
+        <form action="search.php" method="POST">
+            
+            <input type="text" name="searching">
+            
+            <input type="submit" value="Buscar" id= />
+        </form>
+    </div>        
     <?php if(!isset($_SESSION['user'])) :?>
     <div id="login" class="block">
         <h3>Indentificate</h3>
