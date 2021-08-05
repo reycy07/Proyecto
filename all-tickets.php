@@ -18,9 +18,7 @@
                             <a href="tickets.php?id=<?= $insert['id'] ?>">
                                 <h2><?=$insert['titulo']?></h2>
                                 <span class="date"><?= $insert['categoria'].' | '. $insert['fecha'] ?></span>
-                                <p>
-                                   <?= $insert['descripcion'] ?>
-                                </p>
+                                <p><?= $insert['descripcion'] ?></p>
                             </a>
                         </article>   
 
