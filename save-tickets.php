@@ -26,20 +26,27 @@ if(isset($_POST)){
 
 
     if(count($errors) == 0){
-        if(isset($_GET['edit'])){
+            if(isset($_GET['edit'])){
+            $ticketId= $_GET['edit'];
+            $userId = $_SESSION['user']['id'];
+            $sql =  "UPDATE entradas SET titulo ='$name', descripcion = '$description', categoria_id ='$idCategory'".
+                    " WHERE id = '$ticketId' AND usuario_id = '$userId';";
 
         }else{
             $sql = "INSERT INTO entradas VALUES (NULL,'$user','$idCategory','$name','$description',CURDATE());";
-            
         }
         
-        $saveTicket = mysqli_query($conexion, $sql);
-
+        $saveTicket = mysqli_query($conexion, $sql); 
         header('location:index.php');
         
     }else{
         $_SESSION["errors_into"] = $errors;
-        header('location:create-tickets.php');
+
+        if (isset($_GET['edit'])){
+            header('location: edit-ticket.php?id='. $_GET['edit']);
+        }else{
+            header('location: create-tickets.php');
+        }
     }
 
 }

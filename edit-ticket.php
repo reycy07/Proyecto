@@ -18,7 +18,7 @@ $ticket_current= ticketPage($conexion, $_GET['id']);
 
             <p>Edita tu entrada <?= $ticket_current['titulo'] ?></p>
 
-            <form action="save-tickets.php" method="POST">
+            <form action="save-tickets.php?edit=<?=$ticket_current['id']?> " method="POST">
                 <label for="name">Titulo:</label>
                 <input type="text" name="name" value="<?= $ticket_current['titulo'] ?>"
                 <?php echo isset($_SESSION['errors_into']) ? showErrors($_SESSION['errors_into'], 'name') : ''; ?>
@@ -47,7 +47,7 @@ $ticket_current= ticketPage($conexion, $_GET['id']);
                         endif;
                         ?>
                 </select>
-                <?php echo isset($_SESSION['errors_into']) ? showErrors($_SESSION['errors_into'], 'category') : ''; ?>
+                <?= isset($_SESSION['errors_into']) ? showErrors($_SESSION['errors_into'], 'category') : ''; ?>
 
                 <input type="submit" value="Guardar">
             </form>
